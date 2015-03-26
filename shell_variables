@@ -1,36 +1,40 @@
 
-# Java
+# Java and related
 if [ -d /usr/local/java/jdk ]; then
     export JAVA_HOME=/usr/local/java/jdk
+
+    if [ -d "$HOME/Apps" ]; then
+        APPS="$HOME/Apps"
+
+        # Maven
+        if [ -d "$APPS/maven" ]; then
+            export M2_HOME="$APPS/maven"
+            #export MVN_HOME="$APPS/maven"
+            export PATH="$M2_HOME/bin:$PATH"
+        fi
+
+        # Ant
+        if [ -d "$APPS/ant" ]; then
+            export ANT_HOME="$APPS/ant"
+            export PATH="$ANT_HOME/bin:$PATH"
+        fi
+
+        # Groovy
+        if [ -d "$APPS/groovy" ]; then
+            export GROOVY_HOME="$APPS/groovy"
+            export PATH="$GROOVY_HOME/bin:$PATH"
+        fi
+
+        # Gradle
+        if [ -d "$APPS/gradle" ]; then
+            export GRADLE_HOME="$APPS/gradle"
+            export PATH="$GRADLE_HOME/bin:$PATH"
+        fi
+    fi
 fi
 
 if [ -d "$HOME/Apps" ]; then
     APPS="$HOME/Apps"
-
-    # Maven
-    if [ -d "$APPS/maven" ]; then
-        export M2_HOME="$APPS/maven"
-        #export MVN_HOME="$APPS/maven"
-        export PATH="$M2_HOME/bin:$PATH"
-    fi
-
-    # Ant
-    if [ -d "$APPS/ant" ]; then
-        export ANT_HOME="$APPS/ant"
-        export PATH="$ANT_HOME/bin:$PATH"
-    fi
-
-    # Groovy
-    if [ -d "$APPS/groovy" ]; then
-        export GROOVY_HOME="$APPS/groovy"
-        export PATH="$GROOVY_HOME/bin:$PATH"
-    fi
-
-    # Gradle
-    if [ -d "$APPS/gradle" ]; then
-        export GRADLE_HOME="$APPS/gradle"
-        export PATH="$GRADLE_HOME/bin:$PATH"
-    fi
 
     # Node.js
     if [ -d "$APPS/node" ]; then
