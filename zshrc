@@ -4,7 +4,7 @@ promptinit
 prompt adam1
 
 # automatic changing of current directory (e.g. %/etc instead %cd /etc)
-setopt autocd
+# setopt autocd
 
 # enable extended globbing (e.g. %cp ^*.(tar|bz2|gz))
 # setopt extendglob
