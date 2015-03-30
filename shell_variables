@@ -2,7 +2,7 @@
 # Java and related
 if [ -d /usr/local/java/jdk ]; then
     export JAVA_HOME=/usr/local/java/jdk
-    export PATH="$JAVA_HOME/jdk1.8.0_40/bin:$PATH"
+    export PATH="$JAVA_HOME/bin:$PATH"
 
     if [ -d "$HOME/Apps" ]; then
         APPS="$HOME/Apps"
