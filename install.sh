@@ -1,5 +1,6 @@
 #! /bin/sh
 
+
 echo "Update/upgrade..."
 sudo apt-get update
 sudo apt-get upgrade
@@ -16,38 +17,47 @@ chsh -s /bin/zsh
 # .profile, .bashrc, .shell_alises, .shell_variables
 # .zshrc, .vimrc, .vim/
 
-if [ ! -d ~/Apps ]; then
-    APPS=~/Apps
+APPS=~/Apps
+if [ ! -d "$APPS" ]; then
     echo "Creating directory for application \"Apps\""
     mkdir "$APPS"
-    (
-        cd "$APPS"
+fi
 
+(
+    cd "$APPS"
+
+    if [ ! -d "$APPS/maven" ]; then
         echo "Downloading maven..."
         wget http://apache.ip-connect.vn.ua/maven/maven-3/3.3.1/binaries/apache-maven-3.3.1-bin.tar.gz
         tar -xzf apache-maven-3.3.1-bin.tar.gz
         mv apache-maven-3.3.1 maven
         rm apache-maven-3.3.1-bin.tar.gz
+    fi
 
+    if [ ! -d "$APPS/ant" ]; then
         echo "Downloading ant..."
         wget http://apache.volia.net/ant/binaries/apache-ant-1.9.4-bin.tar.gz
         tar -xzf apache-ant-1.9.4-bin.tar.gz
         mv apache-ant-1.9.4 ant
         rm apache-ant-1.9.4-bin.tar.gz
+    fi
 
+    if [ ! -d "$APPS/groovy" ]; then
         echo "Downloading groovy..."
         wget http://dl.bintray.com/groovy/maven/groovy-binary-2.4.3.zip
         unzip groovy-binary-2.4.3.zip
         mv groovy-2.4.3 groovy
         rm groovy-binary-2.4.3.zip
+    fi
 
+    if [ ! -d "$APPS/gradle" ]; then
         echo "Downloading gradle..."
         wget https://services.gradle.org/distributions/gradle-2.3-bin.zip
         unzip gradle-2.3-bin.zip
         mv gradle-2.3 gradle
         rm gradle-2.3-bin.zip
-    )
-fi
+    fi
+)
 
 if [ -f ~/.profile ]; then
     rm -f ~/.profile
